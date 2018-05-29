@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_id: 1
+  destination_id: 1
+  departure: 2018-05-29 12:25:07
+  duration: 1
+
+two:
+  origin_id: 1
+  destination_id: 1
+  departure: 2018-05-29 12:25:07
+  duration: 1
