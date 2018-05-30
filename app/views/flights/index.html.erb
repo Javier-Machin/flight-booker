@@ -1,0 +1,9 @@
+<ul>
+  <% @flights.each do |flight| %> 
+    <li>Origin: <%= flight.origin.name %></li>
+    <li>Destination: <%= flight.destination.name %></li>
+    <li>Departure: <%= flight.departure %></li>
+    <li>Duration: <%= flight.duration %></li>
+    <br/>
+  <% end %>
+</ul>
