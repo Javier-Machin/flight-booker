@@ -15,15 +15,15 @@
 
 <% unless @search_result.blank? %>
   <h2>Available flights: </h2>
-  <%= form_for :flight_selection do |f| %>
+  <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
     <% @search_result.each do |flight| %>
       <h3>
         <%= f.label :flight, "#{flight.origin.name} #{flight.destination.name} 
                               #{flight.departure}" %>
-        <%= f.radio_button :flight, flight %>
+        <%= f.radio_button :flight, flight.id %>
       </h3>
     <% end %>
-    <%= f.hidden_field :passenger_num, value: @passengers_num %>
+    <%= f.hidden_field :passenger_num, value: params[:search][:passenger_num] %>
     <%= f.submit "Submit" %>
   <% end %>
 <% end %>

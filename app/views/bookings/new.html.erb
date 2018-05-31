@@ -1,0 +1,12 @@
+<div class="Booking_container">
+  <h1>Booking: </h1>
+  <div class="Booking_form">
+    <%= form_for @booking do |f| %>
+      <h3><%= f.label :flight, "#{@booking.flight.origin.name} 
+                                #{@booking.flight.destination.name} 
+                                #{@booking.flight.departure}" %></h3>
+      <h3><%= f.label :passengers, @passengers %></h3>
+      <h3><%= f.submit "Submit" %></h3>
+    <% end %>
+  </div>
+</div>
