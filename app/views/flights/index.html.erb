@@ -2,20 +2,28 @@
   <h1>Search flights</h1>
   <div class="Search_form">
     <%= form_for :search, method: :get do |f| %>
-      <h2><%= f.label :origin, 'Origin: ' %></h2>
+      <h3><%= f.label :origin, 'Origin: ' %></h3>
       <%= f.collection_select :origin, Airport.all, :id, :name %>
-      <h2><%= f.label :destination, 'Origin: ' %></h2>
+      <h3><%= f.label :destination, 'Destination: ' %></h3>
       <%= f.collection_select :destination, Airport.all, :id, :name %>
-      <h2><%= f.submit "Submit", class: "Submit_button" %></h2>
+      <h3><%= f.label :passenger_num, 'Num Passengers: ' %></h3>
+      <%= f.select :passenger_num, 1..4 %>
+      <h3><%= f.submit "Search" %></h3>
     <% end %>
   </div>
 </div>
 
 <% unless @search_result.blank? %>
-  <% @search_result.each do |flight| %>
-    <%= flight.origin.name %>
-    <%= flight.destination.name %>
-    <%= flight.departure %>
-    <br>
+  <h2>Available flights: </h2>
+  <%= form_for :flight_selection do |f| %>
+    <% @search_result.each do |flight| %>
+      <h3>
+        <%= f.label :flight, "#{flight.origin.name} #{flight.destination.name} 
+                              #{flight.departure}" %>
+        <%= f.radio_button :flight, flight %>
+      </h3>
+    <% end %>
+    <%= f.hidden_field :passenger_num, value: @passengers_num %>
+    <%= f.submit "Submit" %>
   <% end %>
-<% end %> 
+<% end %>
