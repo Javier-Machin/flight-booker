@@ -13,17 +13,22 @@
   </div>
 </div>
 
-<% unless @search_result.blank? %>
-  <h2>Available flights: </h2>
-  <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
-    <% @search_result.each do |flight| %>
-      <h3>
-        <%= f.label :flight, "#{flight.origin.name} #{flight.destination.name} 
-                              #{flight.departure}" %>
-        <%= f.radio_button :flight, flight.id %>
-      </h3>
+<div class="Flights_selection_container">
+  <div class="Fligths_selection_form">
+    <% unless @search_result.blank? %>
+      <h2>Available flights: </h2>
+      <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
+        <% @search_result.each do |flight| %>
+          <h3>
+            <%= f.label :flight, "#{flight.origin.name} 
+                                  #{flight.destination.name} 
+                                  #{flight.departure}" %>
+            <%= f.radio_button :flight, flight.id %>
+          </h3>
+        <% end %>
+        <%= f.hidden_field :passengers_num, value: @passengers_num %>
+        <%= f.submit "Submit" %>
+      <% end %>
     <% end %>
-    <%= f.hidden_field :passenger_num, value: params[:search][:passenger_num] %>
-    <%= f.submit "Submit" %>
-  <% end %>
-<% end %>
+  </div>
+</div>
