@@ -2,6 +2,8 @@
   <h1>Booking: </h1>
   <div class="Booking_form">
     <%= form_for @booking do |f| %>
+      <%= f.hidden_field :flight, value: @booking.flight.id %>
+      <%= f.hidden_field :passengers_num, value: @passengers_num %>
       <h3>
         <%= f.label :flight, "#{@booking.flight.origin.name} 
                               #{@booking.flight.destination.name} 
@@ -22,3 +24,4 @@
     <% end %>
   </div>
 </div>
+
