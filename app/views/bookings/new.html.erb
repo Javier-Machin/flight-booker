@@ -2,10 +2,22 @@
   <h1>Booking: </h1>
   <div class="Booking_form">
     <%= form_for @booking do |f| %>
-      <h3><%= f.label :flight, "#{@booking.flight.origin.name} 
-                                #{@booking.flight.destination.name} 
-                                #{@booking.flight.departure}" %></h3>
+      <h3>
+        <%= f.label :flight, "#{@booking.flight.origin.name} 
+                              #{@booking.flight.destination.name} 
+                              #{@booking.flight.departure}" %>
+      </h3>
       <h3><%= f.label :passengers_num, @passengers_num %></h3>
+      <h2>Passengers info </h2>
+      <% @passengers_num.to_i.times do |index| %>
+        <h3>Passenger <%= index+1 %>:</h3>
+        <%= fields_for :passengers, @booking.passenger do |passenger_fields| %>
+        <h3>
+          name: <%= passenger_fields.text_field :"name#{index+1}" %>
+          email: <%= passenger_fields.text_field :"email#{index+1}" %>
+        </h3>
+        <% end %>
+      <% end %>
       <h3><%= f.submit "Submit" %></h3>
     <% end %>
   </div>
