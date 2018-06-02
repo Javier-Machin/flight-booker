@@ -6,6 +6,8 @@
       <%= f.collection_select :origin, Airport.all, :id, :name %>
       <h3><%= f.label :destination, 'Destination: ' %></h3>
       <%= f.collection_select :destination, Airport.all, :id, :name %>
+      <h3><%= f.label :date, 'Date: ' %></h3>
+      <%= f.collection_select :date, Flight.all.uniq, :departure, :departure %>
       <h3><%= f.label :passenger_num, 'Num Passengers: ' %></h3>
       <%= f.select :passenger_num, 1..4 %>
       <h3><%= f.submit "Search" %></h3>

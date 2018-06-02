@@ -9,7 +9,6 @@
                               #{@booking.flight.destination.name} 
                               #{@booking.flight.departure}" %>
       </h3>
-      <h3><%= f.label :passengers_num, @passengers_num %></h3>
       <h2>Passengers info </h2>
       <% @passengers_num.to_i.times do |index| %>
         <h3>Passenger <%= index+1 %>:</h3>

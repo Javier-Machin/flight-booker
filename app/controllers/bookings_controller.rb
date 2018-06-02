@@ -16,9 +16,6 @@ class BookingsController < ApplicationController
                              passenger_attributes: {name: params[:passengers][:"name#{index+1}"],
                                                     email: params[:passengers][:"email#{index+1}"]})
 
-      # @booking.passenger_attributes = {name: params[:passengers][:"name#{index+1}"],
-      #                                  email: params[:passengers][:"email#{index+1}"]}
-      
       @booking.save
     end
 
