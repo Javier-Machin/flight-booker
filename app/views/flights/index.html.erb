@@ -1,22 +1,28 @@
-<div class="Search_container">
+<div class="Main_container">
   <h1>Search flights</h1>
-  <div class="Search_form">
+  <div class="Form_container">
     <%= form_for :search, method: :get do |f| %>
       <h3><%= f.label :origin, 'Origin: ' %></h3>
-      <%= f.collection_select :origin, Airport.all, :id, :name %>
+      <%= f.collection_select :origin, Airport.all, :id, :name, 
+          selected: @search_result && @search_result.first.origin.id %>
+      
       <h3><%= f.label :destination, 'Destination: ' %></h3>
-      <%= f.collection_select :destination, Airport.all, :id, :name %>
+      <%= f.collection_select :destination, Airport.all, :id, :name,
+          selected: @search_result && @search_result.first.destination.id %>
+      
       <h3><%= f.label :date, 'Date: ' %></h3>
-      <%= f.collection_select :date, Flight.all.uniq, :departure, :departure %>
+      <%= f.collection_select :date, Flight.group(:departure), :departure, :departure,
+          selected: @search_result && @search_result.first.departure.to_s%>
+      
       <h3><%= f.label :passenger_num, 'Num Passengers: ' %></h3>
-      <%= f.select :passenger_num, 1..4 %>
+      <%= f.select :passenger_num, 1..4, 
+          selected: @search_result && @passengers_num %>
+      
       <h3><%= f.submit "Search" %></h3>
     <% end %>
   </div>
-</div>
 
-<div class="Flights_selection_container">
-  <div class="Fligths_selection_form">
+  <div class="Form_container">
     <% unless @search_result.blank? %>
       <h2>Available flights: </h2>
       <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
@@ -32,5 +38,5 @@
         <%= f.submit "Submit" %>
       <% end %>
     <% end %>
-  </div>
+  </div> 
 </div>
