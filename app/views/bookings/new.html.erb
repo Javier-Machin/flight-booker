@@ -1,5 +1,4 @@
 <div class="Main_container">
-  <h1>Booking</h1>
   <div class="Form_container" id="Booking">
     <%= form_for @booking do |f| %>
       <%= f.hidden_field :flight, value: @booking.flight.id %>
@@ -11,14 +10,14 @@
       </h3>
       <% @passengers_num.to_i.times do |index| %>
         <%= fields_for :passengers, @booking.passenger do |passenger_fields| %>
-          <h3>Passenger <%= index+1 %>:</h3>
+          <h3>Passenger <%= index+1 %></h3>
           <h3>
-            Name: <%= passenger_fields.text_field :"name#{index+1}" %>
-            Email: <%= passenger_fields.text_field :"email#{index+1}" %>
+            Name <%= passenger_fields.text_field :"name#{index+1}", class: "Text_field" %>
+            Email <%= passenger_fields.text_field :"email#{index+1}", class: "Text_field" %>
           </h3>
         <% end %>
       <% end %>
-      <h3><%= f.submit "Confirm" %></h3>
+      <h3><%= f.submit "Confirm", class: "Button" %></h3>
     <% end %>
   </div>
 </div>

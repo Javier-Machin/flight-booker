@@ -1,9 +1,11 @@
 <div class="Main_container">
   <% @bookings.each do |booking| %>
-    <h3><%= booking.flight.origin.name %></h3>
-    <h3><%= booking.flight.destination.name %></h3>
-    <h3><%= booking.passenger.name %></h3>
-    <h3><%= booking.passenger.email %></h3>
+    <div class="Form_container" id="Booking_list">
+      <h3>Passenger: <%= booking.passenger.name %></h3>
+      <h3>Departure from: <%= booking.flight.origin.name %></h3>
+      <h3>Destination: <%= booking.flight.destination.name %></h3>
+      <h3>Departure date: <%= booking.flight.departure %></h3>
+    </div>
     <br>
   <% end %>
 </div>

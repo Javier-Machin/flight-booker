@@ -10,7 +10,9 @@
   </head>
 
   <body>
+    <%= image_tag "beach.jpg", class: "Background_image" %>
     <%= render 'layouts/navbar' %> 
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
