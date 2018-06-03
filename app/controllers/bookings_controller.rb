@@ -12,13 +12,25 @@ class BookingsController < ApplicationController
     @passengers_num = params[:booking][:passengers_num].to_i
     
     @passengers_num.times do |index|
-      @booking = Booking.new(flight: Flight.find(params[:booking][:flight]),
-                             passenger_attributes: {name: params[:passengers][:"name#{index+1}"],
-                                                    email: params[:passengers][:"email#{index+1}"]})
-
+      @booking = Booking.new(
+        flight: Flight.find(booking_params[:flight]), 
+        passenger_attributes: {name:  passenger_params[:"name#{index + 1}"], 
+                               email: passenger_params[:"email#{index + 1}"]})
+      
       @booking.save
     end
 
     redirect_to bookings_path
   end
+
+  private
+
+    def booking_params
+      params.require(:booking).permit(:flight)
+    end
+
+    def passenger_params
+      params.require(:passengers).permit(:name1, :name2, :name3, :name4, 
+                                         :email1, :email2, :email3, :email4)
+    end 
 end

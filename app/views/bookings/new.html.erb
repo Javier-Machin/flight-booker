@@ -1,6 +1,6 @@
 <div class="Main_container">
-  <h1>Booking: </h1>
-  <div class="Form_container">
+  <h1>Booking</h1>
+  <div class="Form_container" id="Booking">
     <%= form_for @booking do |f| %>
       <%= f.hidden_field :flight, value: @booking.flight.id %>
       <%= f.hidden_field :passengers_num, value: @passengers_num %>
@@ -9,17 +9,16 @@
                               #{@booking.flight.destination.name} 
                               #{@booking.flight.departure}" %>
       </h3>
-      <h2>Passengers info </h2>
       <% @passengers_num.to_i.times do |index| %>
-        <h3>Passenger <%= index+1 %>:</h3>
         <%= fields_for :passengers, @booking.passenger do |passenger_fields| %>
+          <h3>Passenger <%= index+1 %>:</h3>
           <h3>
-            name: <%= passenger_fields.text_field :"name#{index+1}" %>
-            email: <%= passenger_fields.text_field :"email#{index+1}" %>
+            Name: <%= passenger_fields.text_field :"name#{index+1}" %>
+            Email: <%= passenger_fields.text_field :"email#{index+1}" %>
           </h3>
         <% end %>
       <% end %>
-      <h3><%= f.submit "Submit" %></h3>
+      <h3><%= f.submit "Confirm" %></h3>
     <% end %>
   </div>
 </div>

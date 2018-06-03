@@ -1,29 +1,26 @@
 <div class="Main_container">
-  <h1>Search flights</h1>
   <div class="Form_container">
     <%= form_for :search, method: :get do |f| %>
-      <h3><%= f.label :origin, 'Origin: ' %></h3>
+      <h3><%= f.label :origin, 'Origin' %>
       <%= f.collection_select :origin, Airport.all, :id, :name, 
-          selected: @search_result && @search_result.first.origin.id %>
+          selected: !@search_result.blank? && @search_result.first.origin.id %>
       
-      <h3><%= f.label :destination, 'Destination: ' %></h3>
+      <%= f.label :destination, 'Destination' %>
       <%= f.collection_select :destination, Airport.all, :id, :name,
-          selected: @search_result && @search_result.first.destination.id %>
+          selected: !@search_result.blank? && @search_result.first.destination.id %>
       
-      <h3><%= f.label :date, 'Date: ' %></h3>
+      <%= f.label :date, 'Date' %>
       <%= f.collection_select :date, Flight.group(:departure), :departure, :departure,
-          selected: @search_result && @search_result.first.departure.to_s%>
+          selected: !@search_result.blank? && @search_result.first.departure.to_s%>
       
-      <h3><%= f.label :passenger_num, 'Num Passengers: ' %></h3>
+      <%= f.label :passenger_num, 'Passengers' %>
       <%= f.select :passenger_num, 1..4, 
-          selected: @search_result && @passengers_num %>
+          selected: !@search_result.blank? && @passengers_num %>
       
-      <h3><%= f.submit "Search" %></h3>
+      <h3><%= f.submit "SEARCH" %></h3>
     <% end %>
-  </div>
 
-  <div class="Form_container">
-    <% unless @search_result.blank? %>
+    <% if !@search_result.blank? %>
       <h2>Available flights: </h2>
       <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
         <% @search_result.each do |flight| %>
@@ -35,7 +32,7 @@
           </h3>
         <% end %>
         <%= f.hidden_field :passengers_num, value: @passengers_num %>
-        <%= f.submit "Submit" %>
+        <%= f.submit "SUBMIT" %>
       <% end %>
     <% end %>
   </div> 

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>FlightBooker</title>
+    <link href="https://fonts.googleapis.com/css?family=Play" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar' %> 
     <%= yield %>
   </body>
 </html>
