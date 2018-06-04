@@ -6,18 +6,18 @@
       <h3>
         <%= f.label :flight, "#{@booking.flight.origin.name} 
                               #{@booking.flight.destination.name} 
-                              #{@booking.flight.departure}" %>
+                              #{@booking.flight.departure}", class: "Radio_selection" %>
       </h3>
       <% @passengers_num.to_i.times do |index| %>
         <%= fields_for :passengers, @booking.passenger do |passenger_fields| %>
-          <h3>Passenger <%= index+1 %></h3>
+          <h3 class="Label">Passenger <%= index+1 %></h3>
           <h3>
-            Name <%= passenger_fields.text_field :"name#{index+1}", class: "Text_field" %>
-            Email <%= passenger_fields.text_field :"email#{index+1}", class: "Text_field" %>
+            <span class="Label">NAME</span><%= passenger_fields.text_field :"name#{index+1}", class: "Text_field" %>
+            <span class="Label">EMAIL</span><%= passenger_fields.text_field :"email#{index+1}", class: "Text_field" %>
           </h3>
         <% end %>
       <% end %>
-      <h3><%= f.submit "Confirm", class: "Button" %></h3>
+      <h3><%= f.submit "CONFIRM", class: "Button" %></h3>
     <% end %>
   </div>
 </div>

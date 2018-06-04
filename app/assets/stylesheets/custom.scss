@@ -23,8 +23,8 @@ html, body {
 
 .Form_container {
   display: inline-block;
-  max-width: 50%;
-  min-width: 1000px;
+  max-width: 45%;
+  min-width: 960px;
   border-bottom: 3px solid #ee5253;
   background-color: rgba(250,250,250,0.95);
   box-shadow: 0px 3px 15px -5px;
@@ -58,6 +58,7 @@ html, body {
   position: fixed;
   top: 0px;
   box-shadow: -5px -5px 20px 0px;
+  z-index: 10;
 }
 
 .Nav_buttons {
@@ -97,13 +98,37 @@ html, body {
   color: #ee5253;
 }
 
-select {
+select, #Booking_list span {
   font-size: 22px;
   background-color: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 2px;
 }
 
+.Label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  letter-spacing: .2em;
+  opacity: 0.6;
+}
+
+.Radio_selection {
+  font-family: sans-serif;
+}
+
+.Label#Title {
+  font-size: 20px;
+  font-family: sans-serif;
+  letter-spacing: 0em;
+  opacity: 0.6;
+}
+
+
 .Button {
-  font-size: 23px;
+  font-size: 21px;
+  padding-left: 4px;
+  padding-right: 4px;
   background-color: #ff9f43;
   color: white;
   border: 0;
@@ -121,6 +146,7 @@ select {
   color: black;
   background-color: white;
   border: 1px solid black;
+  border-radius: 2px;
   box-shadow: 0px 0px 0px 0px;
 }
 

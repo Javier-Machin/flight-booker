@@ -1,10 +1,10 @@
 <div class="Main_container">
   <% @bookings.each do |booking| %>
     <div class="Form_container" id="Booking_list">
-      <h3>Passenger: <%= booking.passenger.name %></h3>
-      <h3>Departure from: <%= booking.flight.origin.name %></h3>
-      <h3>Destination: <%= booking.flight.destination.name %></h3>
-      <h3>Departure date: <%= booking.flight.departure %></h3>
+      <h3 class="Label">Passenger: <span><%= booking.passenger.name %></span></h3>
+      <h3 class="Label">Departure from: <span><%= booking.flight.origin.name %></span></h3>
+      <h3 class="Label">Destination: <span><%= booking.flight.destination.name %></span></h3>
+      <h3 class="Label">Departure date: <span><%= booking.flight.departure %></span></h3>
     </div>
     <br>
   <% end %>
