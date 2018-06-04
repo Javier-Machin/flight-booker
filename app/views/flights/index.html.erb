@@ -10,7 +10,7 @@
           selected: !@search_result.blank? && @search_result.first.destination.id %>
       
       <%= f.label :date, 'Date' %>
-      <%= f.collection_select :date, Flight.group(:departure), :departure, :departure,
+      <%= f.collection_select :date, Flight.group(:departure, :id), :departure, :departure,
           class: "Text_field", selected: !@search_result.blank? && @search_result.first.departure.to_s%>
       
       <%= f.label :passenger_num, 'Passengers' %>
