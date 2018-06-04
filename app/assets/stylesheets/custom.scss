@@ -105,6 +105,10 @@ select, #Booking_list span {
   border-radius: 2px;
 }
 
+select:focus {
+  outline-color: orange;
+}
+
 .Label {
   font-size: 12px;
   text-transform: uppercase;
