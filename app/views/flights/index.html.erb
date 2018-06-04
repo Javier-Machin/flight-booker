@@ -28,7 +28,7 @@
             <%= f.label :flight, "#{flight.origin.name} 
                                   #{flight.destination.name} 
                                   #{flight.departure}" %>
-            <%= f.radio_button :flight, flight.id %>
+            <%= f.radio_button :flight, flight.id, checked: true %>
           </h3>
         <% end %>
         <%= f.hidden_field :passengers_num, value: @passengers_num %>
