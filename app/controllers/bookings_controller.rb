@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
         flight: Flight.find(booking_params[:flight]), 
         passenger_attributes: {name:  passenger_params[:"name#{index + 1}"], 
                                email: passenger_params[:"email#{index + 1}"]})
+      @booking.save
     end
 
     redirect_to bookings_path
