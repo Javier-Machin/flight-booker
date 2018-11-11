@@ -11,8 +11,8 @@
       <% @passengers_num.to_i.times do |index| %>
         <%= fields_for :passengers, @booking.passenger do |passenger_fields| %>
           <h3 class="Label">Passenger <%= index+1 %></h3>
-          <span class="Label">NAME</span><%= passenger_fields.text_field :"name#{index+1}", class: "Text_field" %>
-          <span class="Label">EMAIL</span><%= passenger_fields.text_field :"email#{index+1}", class: "Text_field" %>
+          <span class="Label">NAME</span><%= passenger_fields.text_field :"name#{index+1}", required: true, class: "Text_field" %>
+          <span class="Label">EMAIL</span><%= passenger_fields.email_field :"email#{index+1}", required: true, class: "Text_field" %>
         <% end %>
       <% end %>
       <h3><%= f.submit "CONFIRM", class: "Button" %></h3>
