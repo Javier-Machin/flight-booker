@@ -1,4 +1,3 @@
-
 # Create Airports
 
 Airport.create(name: "NYC")
@@ -8,7 +7,7 @@ Airport.create(name: "Barcelona")
 Airport.create(name: "Glasgow")
 Airport.create(name: "Stuttgart")
 
-# Create Fligths
+# Create Flights
 
 Flight.create(origin: Airport.first, destination: Airport.second, 
               departure: "2020-05-25 16:00", duration: 300)

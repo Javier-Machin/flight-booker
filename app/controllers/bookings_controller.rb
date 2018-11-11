@@ -5,11 +5,12 @@ class BookingsController < ApplicationController
   end
 
   def index
-    @bookings = Booking.all
+    !params[:bookings].blank? ? @bookings = Booking.where(id: params[:bookings]).all : @bookings = Booking.all
   end 
 
   def create
     @passengers_num = params[:booking][:passengers_num].to_i
+    @created_bookings = []
     
     @passengers_num.times do |index|
       @booking = Booking.new(
@@ -17,9 +18,10 @@ class BookingsController < ApplicationController
         passenger_attributes: {name:  passenger_params[:"name#{index + 1}"], 
                                email: passenger_params[:"email#{index + 1}"]})
       @booking.save
+      @created_bookings << @booking
     end
-
-    redirect_to bookings_path
+    flash[:notice] = "Congratulations! Your flight has been booked"
+    redirect_to controller: 'bookings', action: 'index', bookings: @created_bookings
   end
 
   private

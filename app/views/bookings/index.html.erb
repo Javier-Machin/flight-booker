@@ -1,3 +1,6 @@
+<% unless flash[:notice].blank? %>
+  <h3 class="booking-flash"><%=flash[:notice]%></h3>
+<% end %>
 <div class="Main_container">
   <% @bookings.each do |booking| %>
     <div class="Form_container" id="Booking_list">
@@ -8,4 +11,5 @@
     </div>
     <br>
   <% end %>
+<%= link_to("View all bookings", bookings_path, class: "bookings-link") %>
 </div>

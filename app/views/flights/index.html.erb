@@ -1,28 +1,28 @@
 <div class="Main_container">
   <div class="Form_container">
-    <%= form_for :search, method: :get do |f| %>
-      <h3><%= f.label :origin, 'Origin', class: "Label" %>
-      <%= f.collection_select :origin, Airport.all, :id, :name, class: "Text_field", 
+    <%= form_for :search, html: {class: "search-flights-form"}, method: :get do |f| %>
+        <%= f.label :origin, 'Origin', class: "Label" %>
+        <%= f.collection_select :origin, Airport.all, :id, :name, class: "Text_field", 
           selected: !@search_result.blank? && @search_result.first.origin.id %>
       
-      <%= f.label :destination, 'Destination', class: "Label" %>
-      <%= f.collection_select :destination, Airport.all, :id, :name, class: "Text_field",
-          selected: !@search_result.blank? && @search_result.first.destination.id %>
+        <%= f.label :destination, 'Destination', class: "Label" %>
+        <%= f.collection_select :destination, Airport.all, :id, :name, class: "Text_field",
+          selected: @search_result.blank? ? 2 : @search_result.first.destination.id %>
       
-      <%= f.label :date, 'Date', class: "Label" %>
-      <%= f.collection_select :date, Flight.select(:departure).group(:departure), :departure, :departure,
+        <%= f.label :date, 'Date', class: "Label" %>
+        <%= f.collection_select :date, Flight.select(:departure).group(:departure), :departure, :departure,
           class: "Text_field", selected: !@search_result.blank? && @search_result.first.departure.to_s%>
-      
-      <%= f.label :passenger_num, 'Passengers', class: "Label" %>
-      <%= f.select :passenger_num, 1..4, class: "Text_field",
+
+        <%= f.label :passenger_num, 'Passengers', class: "Label" %>
+        <%= f.select :passenger_num, 1..4, class: "Text_field",
           selected: !@search_result.blank? && @passengers_num %>
-      </h3>
       <h3><%= f.submit "SEARCH", class: "Button" %></h3>
     <% end %>
 
     <% if !@search_result.blank? %>
-      <h2 class="Label" id="Title">AVAILABLE FLIGHTS</h2>
-      <%= form_for :flight_selection, url: new_booking_path, method: :get do |f| %>
+      
+      <%= form_for :flight_selection, url: new_booking_path, html: {class: "available-flights-form"}, method: :get do |f| %>
+        <h2 class="Label" id="Title">AVAILABLE FLIGHTS</h2>
         <% @search_result.each do |flight| %>
           
             <%= f.label :flight, "#{flight.origin.name} 
