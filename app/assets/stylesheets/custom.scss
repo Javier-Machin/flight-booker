@@ -311,7 +311,7 @@ h3.Label  {
 
 svg {
   top: -115px;
-  left: 20%;
+  left: 230px;
   position: absolute;
   opacity: 0.7;
   transform: scale(0.15);
@@ -319,16 +319,40 @@ svg {
 
   @media only screen and (max-width: 1250px) {
     & {
-      left: 17%;
+      left: 140px;
       top: -120px;
       transform: scale(0.14);
     }
   }
 
+  @media only screen and (max-width: 835px) {
+    & {
+      left: 110px;
+      top: -122px;
+      transform: scale(0.11);
+    }
+  }
+
   @media only screen and (max-width: 685px) {
     & {
-      left: 11%;
-      top: -128px;
+      left: 80px;
+      top: -125px;
+      transform: scale(0.11);
+    }
+  }
+
+  @media only screen and (max-width: 615px) {
+    & {
+      left: 55px;
+      top: -126px;
+      transform: scale(0.11);
+    }
+  }
+
+  @media only screen and (max-width: 510px) {
+    & {
+      left: 35px;
+      top: -129px;
       transform: scale(0.11);
     }
   }
