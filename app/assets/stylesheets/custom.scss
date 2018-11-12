@@ -43,6 +43,7 @@ html {
 
 body {
   box-sizing: border-box;
+  min-height: 100vh;
 }
 
 
@@ -61,13 +62,6 @@ body {
 .Main_container {
   text-align: center;
   padding: 5rem 0;
-  min-height: 86vh;
-
-  @media only screen and (max-width: 685px) {
-    & {
-      min-height: 90vh;
-    }
-  }
 }
 
 .Form_container {
@@ -303,7 +297,7 @@ h3.Label  {
   font-size: 2rem;
   font-family: 'Play', sans-serif;
   background-color: white;
-  position: relative;
+  position: fixed;
   width: 100%;
   padding: 5px;
   bottom: 0;
