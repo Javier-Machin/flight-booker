@@ -1,24 +1,31 @@
-# README
+# Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app that simulates the booking process of a flight.
 
-Things you may want to cover:
+To run it locally:
 
-* Ruby version
+`$ bundle install`
 
-* System dependencies
+`$ rails db:migrate`
 
-* Configuration
+`$ rails db:seed`
 
-* Database creation
+`$ rails server`
 
-* Database initialization
+[Check it online](https://easy-flight.herokuapp.com/)
 
-* How to run the test suite
+-------------------------------------
 
-* Services (job queues, cache servers, search engines, etc.)
+Aplicación Rails que simula el proceso de reservar un vuelo.
 
-* Deployment instructions
+Para usarla localmente:
 
-* ...
+`$ bundle install`
+
+`$ rails db:migrate`
+
+`$ rails db:seed`
+
+`$ rails server`
+
+[Pruébela online](https://easy-flight.herokuapp.com/)
