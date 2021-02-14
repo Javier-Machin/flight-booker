@@ -12,8 +12,6 @@ To run it locally:
 
 `$ rails server`
 
-[Check it online](https://easy-flight.herokuapp.com/)
-
 -------------------------------------
 
 Aplicación Rails que simula el proceso de reservar un vuelo.
@@ -27,5 +25,3 @@ Para usarla localmente:
 `$ rails db:seed`
 
 `$ rails server`
-
-[Pruébela online](https://easy-flight.herokuapp.com/)
